@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import WeatherCard from "./components/WeatherCard/WeatherCard";
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <WeatherCard temp={30} condition={"Clear"} city={"Sydney"} country={"AU"}/>
+      <WeatherCard temp={22} condition={"Clear"} city={"Lisbon"} country={"PT"}/>
+      <WeatherCard temp={11} condition={"Clouds"} city={"London"} country={"GB"}/>
+      <WeatherCard temp={17} condition={"Dust"} city={"Rome"} country={"IT "}/>
     </div>
   );
 }
