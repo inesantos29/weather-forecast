@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Location from './Location';
-import Icon from './Icon';
-import Condition from './Condition';
+import Location from './Location/Location';
+import Icon from './Icon/Icon';
+import Condition from './Condition/Condition';
 
 const WeatherCard = ({temp, condition, city, country}) => {
   let red = 0;
