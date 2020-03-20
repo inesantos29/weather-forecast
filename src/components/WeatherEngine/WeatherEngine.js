@@ -1,5 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import WeatherCard from "../WeatherCard/WeatherCard";
+
+const API_KEY = "8b4a1cfe7b37f251dcce8b232975fd6d";
 
 const WeatherEngine = ({location}) => {
 
@@ -7,25 +9,29 @@ const WeatherEngine = ({location}) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [weather, setWeather] = useState({
-    temp:null,
     city: null,
-    condition:null,
-    country:null
+    country:null,
+    temp:null,
+    condition:null
   });
+
+  const calCelsius = (temp) => {
+    return Math.floor(temp - 273.15);
+  };
 
   const getWeather = async q => {
     setQuery("");
     setLoading(true);
     try{
       const apiRes = await fetch(
-        {/*`https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=d1e5399eda22d71978d0a5e0fe154aab`*/}
+        `https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=${API_KEY}`
       );
       const resJSON = await apiRes.json();
       setWeather({
-        temp:resJSON.main.temp,
         city:resJSON.name,
-        condition:resJSON.weather[0].main,
-        country:resJSON.country
+        country:resJSON.country,
+        temp:(calCelsius(resJSON.main.temp)),
+        condition:resJSON.weather[0].main
       });
     } catch(error){
       setError(true);
@@ -53,7 +59,7 @@ const WeatherEngine = ({location}) => {
             country={weather.country}
           />
           <form>
-            <input  value={query} onChange={e => setQuery(e.target.value)} />
+            <input value={query} onChange={e => setQuery(e.target.value)} />
             <button onClick={e => handleSearch(e)}>Search</button>
           </form>
         </>
