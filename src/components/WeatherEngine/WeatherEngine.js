@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import WeatherCard from "../WeatherCard/WeatherCard";
+import SearchBar from "../SearchBar/SearchBar";
 
 const API_KEY = "8b4a1cfe7b37f251dcce8b232975fd6d";
 
@@ -50,30 +51,33 @@ const WeatherEngine = ({location}) => {
 
   return (
     <>
-      {!loading && !error ? (
-        <>
-          <WeatherCard
-            temp={weather.temp}
-            condition={weather.condition}
-            city={weather.city}
-            country={weather.country}
-          />
-          <form>
-            <input value={query} onChange={e => setQuery(e.target.value)} />
-            <button onClick={e => handleSearch(e)}>Search</button>
-          </form>
-        </>
-        ) : loading? (
-          <div>Loading</div>
-      ): !loading && error?(
-        <div>
-          There has been an error!
-          <br/>
-          <button
-            onClick={() => setError(false)}>
-            Reset!
-          </button>
-        </div>) :null}
+    {!loading && !error ? (
+      <>
+        <SearchBar
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          onClick={e => handleSearch(e)}
+        />
+
+        <WeatherCard
+          temp={weather.temp}
+          condition={weather.condition}
+          city={weather.city}
+          country={weather.country}
+        />
+      </>
+    ) : loading? (
+    <div>Loading</div>
+    ): !loading && error?(
+    <div>
+      There has been an error!
+      <br/>
+      <button
+        onClick={() => setError(false)}>
+        Reset!
+      </button>
+    </div>) :null}
+
     </>
   );
 };
