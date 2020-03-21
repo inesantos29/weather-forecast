@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import WeatherCard from "../WeatherCard/WeatherCard";
-import SearchBar from "../SearchBar/SearchBar";
+import WeatherCard from '../WeatherCard/WeatherCard';
+import SearchBar from '../SearchBar/SearchBar';
 
 const API_KEY = "8b4a1cfe7b37f251dcce8b232975fd6d";
 
@@ -13,7 +13,10 @@ const WeatherEngine = ({location}) => {
     city: null,
     country:null,
     temp:null,
-    condition:null
+    temp_min: null,
+    tem_max: null,
+    condition:null,
+    description: null
   });
 
   const calCelsius = (temp) => {
@@ -32,7 +35,10 @@ const WeatherEngine = ({location}) => {
         city:resJSON.name,
         country:resJSON.country,
         temp:(calCelsius(resJSON.main.temp)),
-        condition:resJSON.weather[0].main
+        temp_min:(calCelsius(resJSON.main.temp_min)),
+        temp_max:(calCelsius(resJSON.main.temp_max)),
+        condition:resJSON.weather[0].main,
+        description:resJSON.weather[1].main
       });
     } catch(error){
       setError(true);
@@ -51,33 +57,38 @@ const WeatherEngine = ({location}) => {
 
   return (
     <>
-    {!loading && !error ? (
-      <>
-        <SearchBar
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-          onClick={e => handleSearch(e)}
-        />
+      {!loading && !error ? (
+        <>
+          <SearchBar
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            onClick={e => handleSearch(e)}
+          />
 
-        <WeatherCard
-          temp={weather.temp}
-          condition={weather.condition}
-          city={weather.city}
-          country={weather.country}
-        />
-      </>
-    ) : loading? (
-    <div>Loading</div>
-    ): !loading && error?(
-    <div>
-      There has been an error!
-      <br/>
-      <button
-        onClick={() => setError(false)}>
-        Reset!
-      </button>
-    </div>) :null}
-
+          <WeatherCard
+            city={weather.city}
+            country={weather.country}
+            temp={weather.temp}
+            temp_min={weather.temp_min}
+            temp_max={weather.temp_max}
+            condition={weather.condition}
+            description={weather.description}
+          />
+        </>
+      ) : loading? (
+        <div className="message">
+          <h2>Loading...</h2>
+        </div>
+      ): !loading && error?(
+      <div className="message">
+        <h2>There has been an error!</h2>
+        <br/>
+        <button
+          className="button--state-danger"
+          onClick={() => setError(false)}>
+          Reset
+        </button>
+      </div>) :null}
     </>
   );
 };

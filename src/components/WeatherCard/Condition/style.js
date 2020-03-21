@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Temp = styled.h2`
+export const Temperature = styled.h2`
     font-size: 2rem;
     font-weight:200;
   `;

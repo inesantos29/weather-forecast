@@ -23,9 +23,44 @@ body {
   background-size: cover;
 }
 
-.wrapper{
+.container{
   margin: 0 auto;
   width: 100%;
   max-width: 1366px;
-  padding: 0 20px;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+button{
+  display:inline-block;
+  border-radius: 30px;
+  padding: 10px 20px;
+  border:none;
+  cursor:pointer;
+  outline: none;
+  font-size: 14px;
+}
+
+button:focus{
+  outline: none;
+  font-weight: bold;
+}
+
+.message{
+  margin: 50px 0;
+}
+
+.button--default{
+  background: #009ad8;
+  color: #ffffff;
+}
+
+.button--state-danger {
+  background: #900000;
+  color: #ffffff;
+}
+
+
+.title{
+  font-size: 20px;
 }

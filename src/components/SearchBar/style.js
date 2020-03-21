@@ -1,18 +1,13 @@
 import styled from 'styled-components';
 
 export const Search = styled.div`
- display: flex;
- width: 100%;
- margin: 50px 0 50px;
- 
-  .search {
-    position: relative;
-    margin-bottom: 20px;
-    flex-grow: 1;
-    min-width: 400px;
-    max-width: 50%;
-    margin: 0 auto;
-   
+  display: flex;
+  margin: 50px auto 50px auto;
+  position: relative;
+  flex-grow: 1;
+  min-width: 400px;
+  max-width: 50%;
+  
     .search__input {
       flex-grow: 1;
       background: #323544;
@@ -47,26 +42,14 @@ export const Search = styled.div`
       font-weight: normal;
       font-style: italic;
     }
-
-    
-    .button{
+  
+    .button--default{
       position: absolute;
       top: 5px;
       right: 5px;
       bottom: 5px;
-      padding: 0 40px;
+      padding: 0 30px;
       font-size:14px;
     }
   }
-  
-  .button{
-    outline: none;
-    background: #009ad8;
-    padding: 10px 20px;
-    border-radius: 30px;
-    color: white;
-    border:none;
-    cursor:pointer;
-  }
 `;
-

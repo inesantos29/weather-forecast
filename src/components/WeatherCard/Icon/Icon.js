@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Icon = ({condition}) => {
 
-  const Icon = styled.img`
+  const WeatherIcon = styled.img`
     width:40%;
   `;
 
@@ -51,7 +51,7 @@ const Icon = ({condition}) => {
   }
 
   return(
-    <Icon condition={condition} src={icon} alt="Weather Icon"/>
+    <WeatherIcon condition={condition} src={icon} alt="Weather Icon"/>
   );
 };
 

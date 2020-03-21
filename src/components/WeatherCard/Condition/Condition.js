@@ -1,11 +1,21 @@
 import React from 'react';
-import {Temp, State} from './style';
+import {Temperature, State} from './style';
 
-const Condition = ({temp, condition}) => {
+const Condition = ({temp, temp_min, temp_max, description}) => {
+
+  const minMaxTemp = (min, max) => (
+    <h4>
+      <span>{min}&deg;</span>
+      <span>{max}&deg;</span>
+    </h4>
+  );
+
   return(
     <>
-      <Temp>{temp} &#176;C</Temp>
-      <State>{condition}</State>
+      <Temperature>{temp}&deg;</Temperature>
+      {minMaxTemp(temp_min, temp_max)}
+
+      <p>{description}</p>
     </>
   );
 };
