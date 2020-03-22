@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import Location from './Location/Location';
 import Icon from './Icon/Icon';
@@ -57,3 +59,14 @@ const WeatherCard = ({city, temp, temp_min, temp_max, condition, description}) =
 };
 
 export default WeatherCard;
+
+
+WeatherCard.propTypes = {
+  city: PropTypes.string.isRequired,
+  temp:  PropTypes.number.isRequired,
+  temp_min:  PropTypes.number.isRequired,
+  temp_max: PropTypes.number.isRequired,
+  condition: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+
 import WeatherCard from '../WeatherCard/WeatherCard';
 import SearchBar from '../SearchBar/SearchBar';
 
 const API_KEY = "90db462cca3ed3ec9f09cc2ba401fbbd";
 
-const WeatherEngine = ({location}) => {
-
+const WeatherEngine = ({ location }) => {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -93,3 +94,9 @@ const WeatherEngine = ({location}) => {
 };
 
 export default WeatherEngine;
+
+
+WeatherEngine.propTypes = {
+  location: PropTypes.string.isRequired,
+};
+

@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Temperature, Status } from './style';
 
 const Condition = ({temp, temp_min, temp_max, description}) => {
-
   const minMaxTemp = (min, max) => {
     if (min && max) {
       return (
@@ -24,3 +25,10 @@ const Condition = ({temp, temp_min, temp_max, description}) => {
 };
 
 export default Condition;
+
+Condition.propTypes = {
+  temp:  PropTypes.number.isRequired,
+  temp_min:  PropTypes.number.isRequired,
+  temp_max: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
