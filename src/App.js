@@ -1,6 +1,5 @@
 import React from 'react';
 import WeatherEngine from './components/WeatherEngine/WeatherEngine';
-import './App.css';
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
           Open Weather API
         </a>
       </div>
-      <WeatherEngine location="Lisbon, pt"  />
+      <WeatherEngine location="Lisbon" />
     </div>
   );
 }

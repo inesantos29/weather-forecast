@@ -7,7 +7,3 @@ export const Container = styled.div`
 export const City = styled.h2`
     font-size: 1.6rem;
   `;
-
-export const Country = styled.h3`
-    font-size: 1.6rem;
-  `;

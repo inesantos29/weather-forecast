@@ -16,7 +16,7 @@ const Condition = ({temp, temp_min, temp_max, description}) => {
 
   return(
     <>
-      <Temperature>{temp}&deg;</Temperature>
+      {temp ? (<Temperature>{temp}&deg;</Temperature>) : null}
       {minMaxTemp(temp_min, temp_max)}
       <Status>{description}</Status>
     </>

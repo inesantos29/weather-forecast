@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import SearchBar from '../SearchBar/SearchBar';
 
-const API_KEY = "d1e5399eda22d71978d0a5e0fe154aab";
+const API_KEY = "90db462cca3ed3ec9f09cc2ba401fbbd";
 
 const WeatherEngine = ({location}) => {
 
@@ -65,10 +65,8 @@ const WeatherEngine = ({location}) => {
             onChange={e => setQuery(e.target.value)}
             onClick={e => handleSearch(e)}
           />
-
           <WeatherCard
             city={weather.city}
-            country={weather.country}
             temp={weather.temp}
             temp_min={weather.temp_min}
             temp_max={weather.temp_max}

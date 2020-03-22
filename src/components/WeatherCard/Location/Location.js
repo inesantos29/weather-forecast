@@ -1,11 +1,10 @@
 import React from 'react';
-import {Container, City, Country} from "./style";
+import { Container, City } from './style';
 
-const Location = ({city, country}) => {
+const Location = ({city}) => {
   return(
     <Container>
       <City>{city}</City>
-      <Country>{country}</Country>
     </Container>
   );
 };
