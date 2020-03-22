@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import SearchBar from '../SearchBar/SearchBar';
 
-const API_KEY = "8b4a1cfe7b37f251dcce8b232975fd6d";
+const API_KEY = "d1e5399eda22d71978d0a5e0fe154aab";
 
 const WeatherEngine = ({location}) => {
 
@@ -38,7 +38,7 @@ const WeatherEngine = ({location}) => {
         temp_min:(calCelsius(resJSON.main.temp_min)),
         temp_max:(calCelsius(resJSON.main.temp_max)),
         condition:resJSON.weather[0].main,
-        description:resJSON.weather[1].main
+        description:resJSON.weather[0].description
       });
     } catch(error){
       setError(true);
@@ -76,11 +76,11 @@ const WeatherEngine = ({location}) => {
           />
         </>
       ) : loading? (
-        <div className="message">
+        <div className="user-message">
           <h2>Loading...</h2>
         </div>
       ): !loading && error?(
-      <div className="message">
+      <div className="user-message">
         <h2>There has been an error!</h2>
         <br/>
         <button

@@ -14,8 +14,7 @@ const Condition = ({temp, temp_min, temp_max, description}) => {
     <>
       <Temperature>{temp}&deg;</Temperature>
       {minMaxTemp(temp_min, temp_max)}
-
-      <p>{description}</p>
+      <State>{description}</State>
     </>
   );
 };

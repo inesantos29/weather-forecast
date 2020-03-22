@@ -10,12 +10,11 @@ function App() {
           href="https://openweathermap.org/api"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ textDecoration: "none", color: "inherit" }}
         >
           Open Weather API
         </a>
       </div>
-      <WeatherEngine location="Lisbon"  />
+      <WeatherEngine location="Lisbon, pt"  />
     </div>
   );
 }

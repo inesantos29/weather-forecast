@@ -14,6 +14,11 @@ body {
   height: 100vh;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .bg-flowers{
   background-image: url(./bg-flowers.jpg);
   background-position: center;
@@ -44,7 +49,7 @@ button:focus{
   font-weight: bold;
 }
 
-.message{
+.user-message{
   margin: 50px 0;
 }
 
