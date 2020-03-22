@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
 import WeatherCard from '../WeatherCard/WeatherCard';
 import SearchBar from '../SearchBar/SearchBar';
 
@@ -24,27 +25,27 @@ const WeatherEngine = ({location}) => {
   };
 
   const getWeather = async q => {
+    setError(false);
     setQuery("");
     setLoading(true);
-    try{
-      const apiRes = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=${API_KEY}`
-      );
-      const resJSON = await apiRes.json();
+
+   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${q}&appid=${API_KEY}`)
+    .then(response => {
+      const result = response.data;
       setWeather({
-        city:resJSON.name,
-        country:resJSON.country,
-        temp:(calCelsius(resJSON.main.temp)),
-        temp_min:(calCelsius(resJSON.main.temp_min)),
-        temp_max:(calCelsius(resJSON.main.temp_max)),
-        condition:resJSON.weather[0].main,
-        description:resJSON.weather[0].description
-      });
-    } catch(error){
-      setError(true);
-    }
+        city:result.name,
+        country:result.country,
+        temp:(calCelsius(result.main.temp)),
+        temp_min:(calCelsius(result.main.temp_min)),
+        temp_max:(calCelsius(result.main.temp_max)),
+        condition:result.weather[0].main,
+        description:result.weather[0].description
+      })
+    })
+    .catch(error => setError(true));
     setLoading(false);
   };
+
 
   const handleSearch = e => {
     e.preventDefault();
